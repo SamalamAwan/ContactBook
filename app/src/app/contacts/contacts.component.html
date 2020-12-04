@@ -1,0 +1,20 @@
+
+<div class="form-container">
+    <h1 class="mat-h1">Add New Contact</h1>
+    <form (submit)="addContact()">
+        <mat-form-field>
+            <input [(ngModel)]="name" name="name" matInput placeholder="Name"/>
+        </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="email" name="email" matInput placeholder="Email"/>
+        </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="location" name="location" matInput placeholder="Location"/>
+        </mat-form-field>
+        <mat-form-field>
+            <input [(ngModel)]="primary" name="primary" matInput placeholder="Telephone"/>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Add Contact</button>
+    </form>
+</div><mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
