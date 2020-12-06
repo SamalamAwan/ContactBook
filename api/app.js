@@ -13,21 +13,18 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-MongoClient.connect(`mongodb://${config.dbHost}`, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(client => {
-    const db = client.db(config.dbName);
-    const collection = db.collection(config.dbCollection);    
-    app.locals[config.dbCollection] = collection;
-    seedDb(collection); 
-  })
-  .catch(error => {
-    console.log(error);
-  });
+const uri = "mongodb+srv://test:test@cluster0.gmcfz.mongodb.net/contacts?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  app.locals[config.dbCollection] = collection;
+  seedDb(collection); 
+});
 
-  function seedDb(collection){
-    const seedData = require('./contacts.json');
-    collection.insertMany(seedData)   
-   }
+function seedDb(collection){
+  const seedData = require('./contacts.json');
+  collection.insertMany(seedData)   
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
