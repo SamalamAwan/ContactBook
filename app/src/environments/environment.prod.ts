@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: false,
+  API_URL: 'https://app-backend-sacontacts.herokuapp.com',
 };
