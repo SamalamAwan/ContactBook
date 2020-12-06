@@ -12,7 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-const secrets = require('./secrets');
+
 const uri = `mongodb+srv://${process.env.user}:${process.env.pass}@${config.dbHost}/${config.dbName}?retryWrites=true&w=majority";`
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
