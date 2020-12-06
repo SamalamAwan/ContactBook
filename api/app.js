@@ -16,7 +16,7 @@ const secrets = require('./secrets');
 const uri = `mongodb+srv://${process.env.user}:${process.env.pass}@${config.dbHost}/${config.dbName}?retryWrites=true&w=majority";`
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
-  const collection = client.db("test").collection("devices");
+  const collection = client.db("contacts-app").collection("contact");
   app.locals[config.dbCollection] = collection;
   seedDb(collection); 
 });
