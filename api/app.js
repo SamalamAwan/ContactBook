@@ -12,8 +12,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
-const uri = "mongodb+srv://test:test@cluster0.gmcfz.mongodb.net/contacts?retryWrites=true&w=majority";
+const secrets = require('./secrets');
+const uri = `mongodb+srv://${secrets.user}:${secrets.pass}@${config.dbHost}/${config.dbName}?retryWrites=true&w=majority";`
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");

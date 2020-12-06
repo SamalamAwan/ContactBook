@@ -1,5 +1,5 @@
 module.exports = {
-    dbHost: 'localhost',
-    dbName: 'contacts-app',
+    dbHost: 'cluster0.gmcfz.mongodb.net',
+    dbName: 'contacts-app', 
     dbCollection: 'contact',
 }
