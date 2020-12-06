@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "http-server",
     "publishToHeroku": "cd ../ && git subtree push --prefix app heroku-app-frontend master",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
