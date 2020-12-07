@@ -18,10 +18,10 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("contacts-app").collection("contact");
   app.locals[config.dbCollection] = collection;
-  seedDb(collection); 
+  seedDB(collection); 
 });
 
-function seedDb(collection){
+function seedDB(collection){
   const seedData = require('./contacts.json');
   collection.insertMany(seedData)   
 }
